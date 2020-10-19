@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="center" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.geekbrains.skvortsov.cloud_storage.Controller">
+    <MenuBar>
+        <Menu text="Файл">
+            <MenuItem onAction="#btnExit" text="Выйти из программы" />
+        </Menu>
+    </MenuBar>
+
+    <HBox fx:id="connectBox" spacing="10">
+
+        <Label text="Логин" />
+        <TextField fx:id="loginField" HBox.hgrow="ALWAYS" />
+        <Label text="Пароль" />
+        <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS" />
+        <Button fx:id="connectButton" focusTraversable="false" maxWidth="Infinity" onAction="#btnConnect" text="Подключиться" HBox.hgrow="ALWAYS" />
+
+        <padding>
+            <Insets bottom="0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+
+    </HBox>
+
+    <HBox>
+        <Label text="Статус: " />
+        <Label fx:id="labelOffline" text="Не подключен" textFill="#e80909" />
+        <Label fx:id="labelOnline" text="Подключен" textFill="#42cd26" />
+
+        <padding>
+            <Insets bottom="0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+
+    </HBox>
+
+    <HBox spacing="10" VBox.vgrow="ALWAYS">
+
+        <VBox alignment="center" HBox.hgrow="ALWAYS">
+            <Label text="Локальная папка" />
+            <ListView fx:id="filesListClient" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+        </VBox>
+
+        <VBox alignment="center">
+            <Button focusTraversable="false" maxWidth="Infinity" onAction="#btnSendFile" text=" Туда &gt;" HBox.hgrow="ALWAYS" />
+            <Button focusTraversable="false" maxWidth="Infinity" onAction="#btnDownloadFile" text="&lt; Сюда" HBox.hgrow="ALWAYS" />
+        </VBox>
+
+        <VBox alignment="center" HBox.hgrow="ALWAYS">
+            <Label text="Облако" />
+            <ListView fx:id="filesListServer" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+        </VBox>
+
+        <padding>
+            <Insets bottom="0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+
+    </HBox>
+
+    <HBox spacing="10">
+        <Button focusTraversable="false" maxWidth="Infinity" onAction="#btnRefresh" text="Обновить списки" HBox.hgrow="ALWAYS" />
+        <Button focusTraversable="false" maxWidth="Infinity" onAction="#btnDel" text="Удалить файл" HBox.hgrow="ALWAYS" />
+        <Button focusTraversable="false" maxWidth="Infinity" onAction="#btnExit" text="Выход из программы" HBox.hgrow="ALWAYS" />
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+    </HBox>
+</VBox>
